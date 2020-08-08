@@ -1,1 +1,31 @@
+.App {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "body body"
+        "footer footer"
+    ;
+}
 
+body {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #222222;
+}
+
+header {
+    width: 100%;
+    grid-area: header;
+}
+
+main {
+    width: 100%;
+    background-color: yellow;
+    grid-area: body;
+}
+
+footer {
+    width: 100%;
+    background-color: green;
+    grid-area: footer;
+}
