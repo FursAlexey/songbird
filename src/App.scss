@@ -16,6 +16,18 @@ body {
 header {
     width: 100%;
     grid-area: header;
+
+    .logo_score {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+    }
+
+    h5 {
+        font-size: 2rem;
+        color: #ffffff;
+    }
 }
 
 main {
