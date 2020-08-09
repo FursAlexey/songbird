@@ -5,6 +5,7 @@
   background-color: $GRAY;
 
   display: grid;
+  grid-area: question;
   grid-template-areas:
     "image name"
     "image player"

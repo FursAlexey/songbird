@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas:
         "header header"
-        "body body"
+        "main main"
         "footer footer"
     ;
     grid-gap: 30px;
@@ -33,13 +33,15 @@ header {
 
 main {
     width: 100%;
-    grid-area: body;
+    display: grid;
+    grid-area: main;
 
     grid-template-areas:
         "question question"
-        "answer bird_description"
+        "answer-list bird_description"
     ;
-    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
 }
 
 footer {

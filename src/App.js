@@ -3,6 +3,7 @@ import './App.scss';
 
 import Navigation from './components/Navigation';
 import Question from './components/Question/Question';
+import AnswerList from './components/AnswerList/AnswerList';
 
 function App() {
   const [score, setScore] = useState(0);
@@ -18,6 +19,7 @@ function App() {
       </header>
       <main>
         <Question />
+        <AnswerList />
       </main>
       <footer>
 
