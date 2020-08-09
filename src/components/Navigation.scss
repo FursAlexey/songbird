@@ -1,3 +1,5 @@
+@import "src/resources/variables";
+
 ul {
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@ ul {
   justify-content: space-around;
   list-style: none;
 
-  background-color: #008966;
+  background-color: $GREEN;
   border-radius: 5px;
 
   @media (max-width: 400px) {

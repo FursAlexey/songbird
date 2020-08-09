@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.scss';
 
 import Navigation from './components/Navigation';
+import Question from './components/Question/Question';
 
 function App() {
   const [score, setScore] = useState(0);
@@ -16,7 +17,7 @@ function App() {
         <Navigation />
       </header>
       <main>
-
+        <Question />
       </main>
       <footer>
 

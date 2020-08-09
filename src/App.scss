@@ -5,6 +5,7 @@
         "body body"
         "footer footer"
     ;
+    grid-gap: 30px;
 }
 
 body {
@@ -32,8 +33,13 @@ header {
 
 main {
     width: 100%;
-    background-color: yellow;
     grid-area: body;
+
+    grid-template-areas:
+        "question question"
+        "answer bird_description"
+    ;
+    grid-gap: 10px;
 }
 
 footer {
