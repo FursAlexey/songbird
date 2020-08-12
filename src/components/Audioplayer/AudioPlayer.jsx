@@ -54,9 +54,9 @@ function AudioPlayer() {
         <div className="time-indicator">
           <div className="time-indicator-current"></div>
           <div className="time-indicator-pointer"></div>
-          <div className="time-indicator-all"></div>
+          <div className="time-indicator-duration"></div>
         </div>
-        <div className="time">
+        <div className="time-values">
           <span>{timeFormatting(currentTime)}</span>
           <span>{timeFormatting(durationTime)}</span>
         </div>

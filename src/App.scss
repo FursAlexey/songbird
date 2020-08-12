@@ -6,6 +6,8 @@
         "footer footer"
     ;
     grid-gap: 30px;
+
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -38,7 +40,7 @@ main {
 
     grid-template-areas:
         "question question"
-        "answer-list bird_description"
+        "answer-list bird_card"
     ;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;

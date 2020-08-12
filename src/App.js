@@ -4,6 +4,7 @@ import './App.scss';
 import Navigation from './components/Navigation';
 import Question from './components/Question/Question';
 import AnswerList from './components/AnswerList/AnswerList';
+import BirdCard from './components/BirdCard/BirdCard';
 
 function App() {
   const [score, setScore] = useState(0);
@@ -20,6 +21,7 @@ function App() {
       <main>
         <Question />
         <AnswerList />
+        <BirdCard />
       </main>
       <footer>
 

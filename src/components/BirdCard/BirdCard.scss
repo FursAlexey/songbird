@@ -1,0 +1,51 @@
+@import "src/resources/variables";
+
+.bird-card {
+  display: grid;
+  grid-template-areas:
+    "image name"
+    "description description"
+  ;
+  grid-template-columns: 1fr 1fr;
+  grid-area: bird_card;
+  padding: 15px;
+
+  background-color: $GRAY;
+  border: 1px solid #555555;
+  border-radius: 5px;
+
+  img {
+    grid-area: image;
+    width: 200px;
+    height: 155px;
+    object-fit: cover;
+
+    border-radius: 10px;
+  }
+
+  .bird-card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ffffff;
+
+    .bird-card-name {
+      margin: 0;
+      padding-bottom: 10px;
+
+      border-bottom: 1px solid #555555;
+    }
+
+    .bird-card-name-latin {
+      margin-bottom: 10px;
+      padding: 5px 0;
+
+      border-bottom: 1px solid #555555;
+    }
+  }
+
+  .bird-card-description {
+    color: #ffffff;
+    grid-area: description;
+  }
+}
