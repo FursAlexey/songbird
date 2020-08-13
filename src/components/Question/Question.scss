@@ -13,10 +13,25 @@
   grid-column-gap: 20px;
   grid-template-columns: 1fr 4fr;
 
+  @media (max-width: 600px) {
+    grid-template-areas:
+      "image"
+      "name"
+      "player"
+    ;
+
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+  }
+
   img {
     grid-area: image;
 
     border-radius: 10px;
+
+    @media (max-width: 600px) {
+      margin: 0 auto;
+    }
   }
 
   .question-bird-name {
@@ -25,5 +40,9 @@
     grid-area: name;
 
     border-bottom: 1px solid #555555;
+
+    @media (max-width: 600px) {
+      text-align: center;
+    }
   }
 }
