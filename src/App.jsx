@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import Question from './components/Question/Question';
 import AnswerList from './components/AnswerList/AnswerList';
 import BirdCard from './components/BirdCard/BirdCard';

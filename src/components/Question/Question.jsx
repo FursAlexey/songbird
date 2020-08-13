@@ -4,9 +4,9 @@ import AudioPlayer from '../Audioplayer/AudioPlayer';
 
 function Question() {
   return (
-    <div className="Question">
+    <div className="question">
       <img src="./jpg/bird_template.jpg" alt="bird_template"/>
-      <h2>****</h2>
+      <h2 className="question-bird-name">****</h2>
       <AudioPlayer />
     </div>
   )
