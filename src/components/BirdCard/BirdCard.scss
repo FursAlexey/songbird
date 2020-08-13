@@ -3,16 +3,27 @@
 .bird-card {
   display: grid;
   grid-template-areas:
-    "image name"
+    "image details"
     "description description"
   ;
-  grid-template-columns: 1fr 1fr;
-  grid-area: bird_card;
+  grid-template-columns: 1fr 2fr;
+  grid-area: bird-card;
+  grid-column-gap: 10px;
   padding: 15px;
 
   background-color: $GRAY;
   border: 1px solid #555555;
   border-radius: 5px;
+
+  @media (max-width: 900px) {
+    & {
+      grid-template-areas:
+        "image image"
+        "details details"
+        "description description"
+      ;
+    }
+  }
 
   img {
     grid-area: image;
@@ -21,9 +32,14 @@
     object-fit: cover;
 
     border-radius: 10px;
+
+    @media (max-width: 900px) {
+      margin: 0 auto;
+    }
   }
 
   .bird-card-details {
+    grid-area: details;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
