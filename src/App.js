@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import Question from './components/Question/Question';
 import AnswerList from './components/AnswerList/AnswerList';
 import BirdCard from './components/BirdCard/BirdCard';
+import NextLevelButton from './components/NextLevelButton/NextLevelButton';
 
 function App() {
   const [score, setScore] = useState(0);
@@ -24,7 +25,7 @@ function App() {
         <BirdCard />
       </main>
       <footer>
-
+        <NextLevelButton />
       </footer>
     </div>
   );
