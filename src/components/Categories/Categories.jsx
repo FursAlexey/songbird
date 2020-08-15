@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Navigation.scss";
+import "./Categories.scss";
 
-export default function Navigation() {
+export default function Categories() {
   return (
     <nav>
       <ul>

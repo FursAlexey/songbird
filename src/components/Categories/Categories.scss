@@ -19,8 +19,7 @@ nav {
   }
 
   li {
-    width: auto;
-
+    flex-grow: 1;
     text-align: center;
 
     &:hover {
@@ -33,6 +32,10 @@ nav {
 
       color: #ffffff;
       text-decoration: none;
+
+      &:hover {
+        background-color: #00bc8c;
+      }
     }
   }
 }
