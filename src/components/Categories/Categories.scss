@@ -18,24 +18,23 @@ nav {
     }
   }
 
-  li {
+  .category,
+  .selected-category {
     flex-grow: 1;
+    padding: 8px 12px;
+
+    color: #ffffff;
     text-align: center;
+    border-radius: 5px;
 
     &:hover {
       background-color: #00bc8c;
-    }
-
-    a {
-      display: block;
-      padding: 7px 5px;
-
-      color: #ffffff;
-      text-decoration: none;
-
-      &:hover {
-        background-color: #00bc8c;
-      }
+      cursor: pointer;
     }
   }
+  .selected-category {
+    background-color: #00bc8c;
+  }
 }
+
+///00bc8c

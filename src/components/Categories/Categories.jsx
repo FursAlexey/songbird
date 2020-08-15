@@ -1,16 +1,35 @@
 import React from 'react';
+import { v4 as uuid } from 'uuid';
 import "./Categories.scss";
 
-export default function Categories() {
+const birds = ['Разминка', 'Воробьиные', 'Лесные птицы', 'Певчие птицы', 'Хищные птицы', 'Морские птицы'];
+
+export default function Categories(props) {
+  const { selected, setCategory } = props;
+
+
   return (
     <nav>
       <ul>
-        <li><a href="#">Разминка</a></li>
-        <li><a href="#">Воробьиные</a></li>
-        <li><a href="#">Лесные птицы</a></li>
-        <li><a href="#">Певчие птицы</a></li>
-        <li><a href="#">Хищные птицы</a></li>
-        <li><a href="#">Морские птицы</a></li>
+        {birds.map((name, index) => {
+          return (selected === index)
+            ?
+            <li
+              key={uuid()}
+              className="selected-category"
+              onClick={() => setCategory(index)}
+            >
+              {name}
+            </li>
+            :
+            <li
+              key={uuid()}
+              className="category"
+              onClick={() => setCategory(index)}
+            >
+              {name}
+            </li>
+        })}
       </ul>
     </nav>
   );

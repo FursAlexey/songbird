@@ -9,6 +9,11 @@ import NextLevelButton from './components/NextLevelButton/NextLevelButton';
 
 function App() {
   const [score, setScore] = useState(0);
+  const [category, setCategory] = useState(0);
+
+  const handleSetCategory = (selectedCategory) => {
+    setCategory(selectedCategory);
+  }
 
   return (
     <div className="App">
@@ -17,7 +22,10 @@ function App() {
           <img src="./svg/logo.svg" width="200" alt="song_bird"/>
           <h5>Score: {score}</h5>
         </div>
-        <Categories />
+        <Categories
+          selected={category}
+          setCategory={handleSetCategory}
+        />
       </header>
       <main>
         <Question />
