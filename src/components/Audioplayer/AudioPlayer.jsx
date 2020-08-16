@@ -17,7 +17,6 @@ function AudioPlayer() {
   const updateTimeBar = () => {
     const currentTimeIndicator = document.body.querySelector('.time-indicator-current');
     setCurrentTime(audioRef.current.currentTime);
-    console.log(currentTime, durationTime);
     currentTimeIndicator.style.width = `${currentTime * 100 / durationTime}%`;
   }
 
@@ -35,7 +34,6 @@ function AudioPlayer() {
   useEffect(() => {
     audioRef.current.oncanplay = () => {
       setDurationTime(audioRef.current.duration);
-      console.log(audioRef);
     }
     audioRef.current.onended = () => {
       setIsPlaying(false);

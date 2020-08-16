@@ -1,16 +1,34 @@
 import React from 'react';
+import { v4 as uuid } from 'uuid';
 import './AnswerList.scss';
 
-function AnswerList() {
+function AnswerList(props) {
+  const { birdList, correctAnswerSelected, birdForGuess, selectedAnswers, setSelectedAnswer } = props;
+  console.log(selectedAnswers);
+
+  const handleClick = ({ target }) => {
+    const index = Number(target.dataset.index);
+    if (!correctAnswerSelected) {
+      if (birdForGuess.name.toLowerCase() === target.innerText.toLowerCase()) {
+        target.className = 'correct';
+      } else {
+        target.className = 'incorrect';
+      }
+    }
+    setSelectedAnswer(index);
+  }
+
   return (
     <div className="answer-list">
       <ul>
-        <li><span className="circle"></span>Ворон</li>
-        <li><span className="circle"></span>Журавль</li>
-        <li><span className="circle"></span>Ласточка</li>
-        <li><span className="circle"></span>Козодой</li>
-        <li><span className="circle"></span>Кукушка</li>
-        <li><span className="circle"></span>Синица</li>
+        {birdList.map((item, index) => (
+          <li
+            data-index={index}
+            key={uuid()}
+            className={selectedAnswers[index]}
+            onClick={handleClick}>{item.name}
+          </li>
+        ))}
       </ul>
     </div>
   );

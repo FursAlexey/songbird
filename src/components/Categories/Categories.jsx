@@ -5,14 +5,14 @@ import "./Categories.scss";
 const birds = ['Разминка', 'Воробьиные', 'Лесные птицы', 'Певчие птицы', 'Хищные птицы', 'Морские птицы'];
 
 export default function Categories(props) {
-  const { selected, setCategory } = props;
+  const { selectedCategory, setCategory } = props;
 
 
   return (
     <nav>
       <ul>
         {birds.map((name, index) => {
-          return (selected === index)
+          return (selectedCategory === index)
             ?
             <li
               key={uuid()}

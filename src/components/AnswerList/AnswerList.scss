@@ -40,5 +40,17 @@
         background-color: #444444;
       }
     }
+
+    .correct {
+      &:before {
+        background-color: #00bc8c;
+      }
+    }
+
+    .incorrect {
+      &:before {
+        background-color: red;
+      }
+    }
   }
 }
