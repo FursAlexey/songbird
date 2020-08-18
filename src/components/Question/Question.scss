@@ -12,6 +12,7 @@
   ;
   grid-column-gap: 20px;
   grid-template-columns: 1fr 4fr;
+  align-items: center;
 
   border-radius: 5px;
 
@@ -41,8 +42,11 @@
 
   .question-bird-name {
     margin: 0;
-    color: #ffffff;
+    padding: 10px 0;
     grid-area: name;
+
+    color: #ffffff;
+    font-size: 2rem;
 
     border-bottom: 1px solid #555555;
 
