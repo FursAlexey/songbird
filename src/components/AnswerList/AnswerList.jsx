@@ -4,7 +4,6 @@ import './AnswerList.scss';
 
 function AnswerList(props) {
   const { birdList, correctAnswerSelected, birdForGuess, selectedAnswers, setSelectedAnswer } = props;
-  console.log(selectedAnswers);
 
   const handleClick = ({ target }) => {
     const index = Number(target.dataset.index);

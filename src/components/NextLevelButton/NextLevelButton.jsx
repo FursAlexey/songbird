@@ -1,9 +1,13 @@
 import React from 'react';
 import './NextLevelButton.scss';
 
-function NextLevelButton() {
+function NextLevelButton(props) {
+  const { isActive, passNextLevel } = props;
+
   return (
-    <button className="next-button">Next Level</button>
+    isActive
+      ? <button className="next-button active" onClick={passNextLevel}>Next Level</button>
+      : <button className="next-button inactive">Next Level</button>
   );
 }
 

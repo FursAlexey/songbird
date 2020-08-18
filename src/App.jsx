@@ -12,6 +12,7 @@ import getBirdsByCategory from './resources/getBirdsByCategory';
 
 function App() {
   const [score, setScore] = useState(0);
+  const [scoreForQuestion, setScoreForQuestion] = useState(5);
   const [category, setCategory] = useState(0);
   const [birdList, setBirdList] = useState([]);
   const [birdForGuess, setBirdForGuess] = useState(null);
@@ -27,7 +28,6 @@ function App() {
 
   const handleSetCategory = (selectedCategory) => {
     setCategory(selectedCategory);
-    setSelectedAnswers(['', '', '', '', '', '']);
   }
 
   const handleSelectedAnswer = (index) => {
@@ -41,6 +41,19 @@ function App() {
     }
 
     setSelectedBird(birdList[index]);
+  }
+
+  const newLevel = () => {
+    const birdList = getBirdsByCategory(category);
+    setBirdList(birdList);
+    setBirdForGuess(birdList[random(5)]);
+    setScoreForQuestion(5);
+    setSelectedAnswers(['', '', '', '', '', '']);
+    setIsCorrectAnswerSelected(false);
+  }
+
+  const handleClickNextLevel = () => {
+    newLevel();
   }
 
   return (
@@ -69,7 +82,10 @@ function App() {
         />
       </main>
       <footer>
-        <NextLevelButton />
+        <NextLevelButton
+          isActive={isCorrectAnswerSelected}
+          passNextLevel={handleClickNextLevel}
+        />
       </footer>
     </div>
   );
