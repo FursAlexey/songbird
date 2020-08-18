@@ -35,9 +35,11 @@ function App() {
         setSelectedAnswers(selectedAnswers.map((item, i) => ((index === i) ? 'correct' : item)));
         setIsCorrectAnswerSelected(true);
         setScore(score + scoreForQuestion);
+        setSelectedBird(birdList[index]);
       } else {
         setSelectedAnswers(selectedAnswers.map((item, i) => ((index === i) ? 'incorrect' : item)));
         setScoreForQuestion(scoreForQuestion - 1);
+        setSelectedBird(birdList[index]);
       }
     }
 
