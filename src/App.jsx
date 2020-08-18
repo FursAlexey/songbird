@@ -53,6 +53,7 @@ function App() {
     setScoreForQuestion(5);
     setSelectedAnswers(['', '', '', '', '', '']);
     setIsCorrectAnswerSelected(false);
+    setSelectedBird(null);
   }
 
   const handleClickNextLevel = () => {
@@ -72,7 +73,10 @@ function App() {
         />
       </header>
       <main>
-        <Question />
+        <Question
+          isCorrectAnswerSelected={isCorrectAnswerSelected}
+          birdForGuess={birdForGuess}
+        />
         <AnswerList
           birdList={birdList}
           isCorrectAnswerSelected={isCorrectAnswerSelected}

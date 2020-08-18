@@ -28,6 +28,9 @@
 
   img {
     grid-area: image;
+    width: 200px;
+    height: 155px;
+    object-fit: cover;
 
     border-radius: 10px;
 
