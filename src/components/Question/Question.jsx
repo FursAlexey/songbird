@@ -17,7 +17,7 @@ function Question(props) {
         <div className="question">
           <img src="./jpg/bird_template.jpg" alt="bird_template"/>
           <h2 className="question-bird-name">****</h2>
-          <AudioPlayer />
+          <AudioPlayer audioUrl={birdForGuess.audio} />
         </div>
       )
   )
