@@ -13,7 +13,7 @@ function BirdCard(props) {
           <div className="bird-card-details">
             <h2 className="bird-card-name">{selectedBird.name}</h2>
             <span className="bird-card-name-latin">{selectedBird.species}</span>
-            <AudioPlayer />
+            <AudioPlayer audioUrl={selectedBird.audio} />
           </div>
           <p className="bird-card-description">{selectedBird.description}</p>
         </div>

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './AudioPlayer.scss';
-import birdsData from '../../resources/birds';
 import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
 import timeFormatting from '../../resources/timeFormatting';
 
-function AudioPlayer() {
+function AudioPlayer(props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [durationTime, setDurationTime] = useState(null);
   const audioRef = useRef(null);
+
+  const { audioUrl } = props;
 
   const handleClick = () => {
     setIsPlaying(!isPlaying);
@@ -42,7 +43,7 @@ function AudioPlayer() {
 
   return (
     <div className="audio-player">
-      <audio src={birdsData[0][0].audio} ref={audioRef} />
+      <audio src={audioUrl} ref={audioRef} />
       {
         isPlaying
           ? <PauseCircleOutlined className="play-button" onClick={handleClick} />
