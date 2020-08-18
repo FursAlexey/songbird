@@ -21,9 +21,8 @@ function App() {
   const [isCorrectAnswerSelected, setIsCorrectAnswerSelected] = useState(false);
 
   useEffect(() => {
-    const birdsArr = getBirdsByCategory(category);
-    setBirdList(birdsArr);
-    setBirdForGuess(birdsArr[random(5)]);
+    newLevel();
+    setScore(0);
   }, [category]);
 
   const handleSetCategory = (selectedCategory) => {
@@ -35,8 +34,10 @@ function App() {
       if (birdList[index].name.toLowerCase() === birdForGuess.name.toLowerCase()) {
         setSelectedAnswers(selectedAnswers.map((item, i) => ((index === i) ? 'correct' : item)));
         setIsCorrectAnswerSelected(true);
+        setScore(score + scoreForQuestion);
       } else {
         setSelectedAnswers(selectedAnswers.map((item, i) => ((index === i) ? 'incorrect' : item)));
+        setScoreForQuestion(scoreForQuestion - 1);
       }
     }
 
