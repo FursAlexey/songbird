@@ -63,7 +63,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <div className="logo_score">
+        <div className="logo-score">
           <img src="./svg/logo.svg" width="200" alt="song_bird"/>
           <h5>Score: {score}</h5>
         </div>

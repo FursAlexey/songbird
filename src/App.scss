@@ -23,15 +23,17 @@ header {
     width: 100%;
     grid-area: header;
 
-    .logo_score {
+    .logo-score {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 90px;
+        height: 60px;
     }
 
     h5 {
-        font-size: 2rem;
+        margin: 0;
+
+        font-size: 1.7rem;
         color: #ffffff;
 
         @media (max-width: 600px) {
