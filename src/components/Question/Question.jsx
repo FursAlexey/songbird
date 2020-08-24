@@ -13,13 +13,16 @@ function Question(props) {
           <AudioPlayer audioUrl={birdForGuess.audio} />
         </div>
       )
-      : (
+      :
+    birdForGuess
+      ? (
         <div className="question">
           <img src="./jpg/bird_template.jpg" alt="bird_template"/>
           <h2 className="question-bird-name">****</h2>
           <AudioPlayer audioUrl={birdForGuess.audio} />
         </div>
       )
+      : null
   )
 }
 
