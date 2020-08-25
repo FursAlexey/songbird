@@ -1,72 +1,69 @@
 .App {
-    padding: 0 5%;
+  padding: 0 5%;
 
-    display: grid;
-    grid-template-areas:
-        "header header"
-        "main main"
-        "footer footer"
-    ;
-    grid-gap: 30px;
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'main main'
+    'footer footer';
+  grid-gap: 30px;
 
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-    max-width: 1300px;
-    min-width: 350px;
-    margin: 10px auto;
-    background-color: #222222;
+  max-width: 1300px;
+  min-width: 350px;
+  margin: 10px auto;
+  background-color: #222222;
 }
 
 header {
-    width: 100%;
-    grid-area: header;
+  width: 100%;
+  grid-area: header;
 
-    .logo-score {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 60px;
+  .logo-score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+
+  h5 {
+    margin: 0;
+
+    font-size: 1.7rem;
+    color: #ffffff;
+
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
     }
-
-    h5 {
-        margin: 0;
-
-        font-size: 1.7rem;
-        color: #ffffff;
-
-        @media (max-width: 600px) {
-            font-size: 1.5rem;
-        }
-    }
+  }
 }
 
 main {
-    width: 100%;
-    display: grid;
-    grid-area: main;
+  width: 100%;
+  display: grid;
+  grid-area: main;
 
-    grid-template-areas:
-        "question question"
-        "answer-list bird-card"
-    ;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
+  grid-template-areas:
+    'question question'
+    'answer-list bird-card';
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
 
-    @media (max-width: 600px) {
-        & {
-            grid-template-areas:
-                "question"
-                "answer-list"
-                "bird-card"
-            ;
-            grid-template-columns: 1fr;
-        }
+  @media (max-width: 600px) {
+    & {
+      grid-template-areas:
+        'question'
+        'answer-list'
+        'bird-card';
+      grid-template-columns: 1fr;
     }
+  }
 }
 
 footer {
-    width: 100%;
-    grid-area: footer;
+  width: 100%;
+  grid-area: footer;
 }

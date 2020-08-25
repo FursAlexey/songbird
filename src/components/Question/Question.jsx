@@ -1,29 +1,44 @@
 import React from 'react';
-import "./Question.scss";
+import PropTypes from 'prop-types';
+import './Question.scss';
 import AudioPlayer from '../Audioplayer/AudioPlayer';
+
+import birdTemplate from '../../images/jpg/bird_template.jpg';
 
 function Question(props) {
   const { isCorrectAnswerSelected, birdForGuess } = props;
-  return (
-    isCorrectAnswerSelected
-      ? (
-        <div className="question">
-          <img src={birdForGuess.image} alt={birdForGuess.name} />
-          <h2 className="question-bird-name">{birdForGuess.name}</h2>
-          <AudioPlayer audioUrl={birdForGuess.audio} />
-        </div>
-      )
-      :
-    birdForGuess
-      ? (
-        <div className="question">
-          <img src="./jpg/bird_template.jpg" alt="bird_template"/>
-          <h2 className="question-bird-name">****</h2>
-          <AudioPlayer audioUrl={birdForGuess.audio} />
-        </div>
-      )
-      : null
-  )
+
+  if (isCorrectAnswerSelected) {
+    return (
+      <div className="question">
+        <img src={birdForGuess.image} alt={birdForGuess.name} />
+        <h2 className="question-bird-name">{birdForGuess.name}</h2>
+        <AudioPlayer audioUrl={birdForGuess.audio} />
+      </div>
+    );
+  }
+  if (birdForGuess) {
+    return (
+      <div className="question">
+        <img src={birdTemplate} alt="bird_template" />
+        <h2 className="question-bird-name">****</h2>
+        <AudioPlayer audioUrl={birdForGuess.audio} />
+      </div>
+    );
+  }
+  return null;
 }
+
+Question.propTypes = {
+  isCorrectAnswerSelected: PropTypes.bool.isRequired,
+  birdForGuess: PropTypes.exact({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    species: PropTypes.string,
+    image: PropTypes.string,
+    audio: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
+};
 
 export default Question;

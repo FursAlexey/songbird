@@ -1,4 +1,4 @@
-@import "src/resources/variables";
+@import 'src/resources/variables';
 
 .audio-player {
   display: flex;
@@ -39,7 +39,6 @@
         height: 4px;
 
         background-color: $LIGHT_GRAY;
-
 
         z-index: 1;
       }

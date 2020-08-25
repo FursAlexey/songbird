@@ -1,11 +1,10 @@
-@import "src/resources/variables";
+@import 'src/resources/variables';
 
 .bird-card {
   display: grid;
   grid-template-areas:
-    "image details"
-    "description description"
-  ;
+    'image details'
+    'description description';
   grid-template-columns: 1fr 2fr;
   grid-area: bird-card;
   grid-column-gap: 10px;
@@ -20,10 +19,9 @@
   @media (max-width: 900px) {
     & {
       grid-template-areas:
-        "image image"
-        "details details"
-        "description description"
-      ;
+        'image image'
+        'details details'
+        'description description';
     }
   }
 

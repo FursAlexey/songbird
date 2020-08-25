@@ -1,4 +1,4 @@
-@import "src/resources/variables";
+@import 'src/resources/variables';
 
 .question {
   padding: 15px;
@@ -7,9 +7,8 @@
   display: grid;
   grid-area: question;
   grid-template-areas:
-    "image name"
-    "image player"
-  ;
+    'image name'
+    'image player';
   grid-column-gap: 20px;
   grid-template-columns: 1fr 4fr;
   align-items: center;
@@ -18,10 +17,9 @@
 
   @media (max-width: 600px) {
     grid-template-areas:
-      "image"
-      "name"
-      "player"
-    ;
+      'image'
+      'name'
+      'player';
 
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
