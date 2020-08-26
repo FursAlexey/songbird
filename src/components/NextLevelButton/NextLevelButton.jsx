@@ -11,11 +11,11 @@ function NextLevelButton(props) {
       className="next-button active"
       onClick={goToNextLevel}
     >
-      Next Level
+      Продолжить
     </button>
   ) : (
     <button type="button" className="next-button inactive">
-      Next Level
+      Продолжить
     </button>
   );
 }

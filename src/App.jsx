@@ -29,7 +29,7 @@ function App() {
     '',
   ]);
   const [isCorrectAnswerSelected, setIsCorrectAnswerSelected] = useState(false);
-  const [isGameOver, setIsGameOver] = useState(true);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   const newLevel = () => {
     const birdListByCategory = getBirdsByCategory(category);
@@ -91,7 +91,7 @@ function App() {
         <div className="logo-score">
           <img src={logo} width="200" alt="song_bird" />
           <h5>Вопрос: {currentQuestionNumber} из 5</h5>
-          <h5>Score: {score}</h5>
+          <h5>Счет: {score}</h5>
         </div>
         <Categories
           selectedCategory={category}
