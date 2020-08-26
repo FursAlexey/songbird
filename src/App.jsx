@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { random } from 'lodash';
 import './App.scss';
 import logo from './images/svg/logo.svg';
@@ -10,10 +10,12 @@ import BirdCard from './components/BirdCard/BirdCard';
 import NextLevelButton from './components/NextLevelButton/NextLevelButton';
 
 import getBirdsByCategory from './resources/getBirdsByCategory';
+import EndGame from './components/EndGame/EndGame';
 
 function App() {
   const [score, setScore] = useState(0);
   const [scoreForQuestion, setScoreForQuestion] = useState(5);
+  const [currentQuestionNumber, setCurrentQuestionNumber] = useState(1);
   const [category, setCategory] = useState(0);
   const [birdList, setBirdList] = useState(getBirdsByCategory(category));
   const [birdForGuess, setBirdForGuess] = useState(birdList[random(5)]);
@@ -27,6 +29,7 @@ function App() {
     '',
   ]);
   const [isCorrectAnswerSelected, setIsCorrectAnswerSelected] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(true);
 
   const newLevel = () => {
     const birdListByCategory = getBirdsByCategory(category);
@@ -38,12 +41,14 @@ function App() {
     setSelectedBird(null);
   };
 
-  useEffect(() => {
+  const newGame = () => {
+    newLevel();
     setScore(0);
-  }, [category]);
+    setIsGameOver(false);
+  };
 
   const handleSetCategory = (selectedCategory) => {
-    newLevel();
+    newGame();
     setCategory(selectedCategory);
   };
 
@@ -72,13 +77,20 @@ function App() {
 
   const handleClickNextLevel = () => {
     newLevel();
+    setCurrentQuestionNumber(currentQuestionNumber + 1);
+    if (currentQuestionNumber === 5) {
+      setIsGameOver(true);
+    }
   };
 
-  return (
+  return isGameOver ? (
+    <EndGame score={score} playNewGame={newGame} />
+  ) : (
     <div className="App">
       <header>
         <div className="logo-score">
           <img src={logo} width="200" alt="song_bird" />
+          <h5>Вопрос: {currentQuestionNumber} из 5</h5>
           <h5>Score: {score}</h5>
         </div>
         <Categories

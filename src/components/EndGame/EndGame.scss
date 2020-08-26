@@ -1,0 +1,47 @@
+@import "./src/resources/variables";
+
+.end-game {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: #ffffff;
+
+  .end-game-background-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .play-again-button {
+    width: 200px;
+    height: 50px;
+
+    background-color: $GREEN;
+    color: #ffffff;
+    font-size: 1.5rem;
+
+    border: none;
+    border-radius: 5px;
+
+    transition: background-color .2s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $LIGHT_GREEN;
+    }
+  }
+}
+
+.success {
+  background: url("../../images/jpg/dicaprio.jpg") 100% no-repeat;
+  background-size: cover;
+}
+
+.fail {
+  background: url("../../images/png/sad_cat.png") 100% no-repeat;
+  background-size: cover;
+}
