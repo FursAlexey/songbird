@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import { random } from 'lodash';
 import './App.scss';
 import logo from './images/svg/logo.svg';
@@ -31,7 +31,7 @@ function App() {
   const [isCorrectAnswerSelected, setIsCorrectAnswerSelected] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
 
-  const newLevel = () => {
+  const newLevel = useCallback(() => {
     const birdListByCategory = getBirdsByCategory(category);
     setBirdList(birdListByCategory);
     setBirdForGuess(birdListByCategory[random(5)]);
@@ -39,7 +39,11 @@ function App() {
     setSelectedAnswers(['', '', '', '', '', '']);
     setIsCorrectAnswerSelected(false);
     setSelectedBird(null);
-  };
+  }, [category]);
+
+  useEffect(() => {
+    newLevel();
+  }, [category, newLevel]);
 
   const newGame = () => {
     newLevel();
@@ -49,7 +53,6 @@ function App() {
   };
 
   const handleSetCategory = (selectedCategory) => {
-    newGame();
     setCategory(selectedCategory);
   };
 
