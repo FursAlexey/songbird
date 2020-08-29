@@ -44,6 +44,7 @@ function App() {
   const newGame = () => {
     newLevel();
     setScore(0);
+    setCurrentQuestionNumber(1);
     setIsGameOver(false);
   };
 
