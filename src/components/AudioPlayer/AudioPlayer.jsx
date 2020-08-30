@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import './AudioPlayer.scss';
 import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
@@ -9,58 +10,73 @@ function AudioPlayer(props) {
   const [currentTime, setCurrentTime] = useState(0);
   const [durationTime, setDurationTime] = useState(null);
   const [timer, setTimer] = useState(null);
+  const [divId] = useState(uuid());
   const audioRef = useRef(null);
 
   const { audioUrl } = props;
 
   const updateTimeBar = () => {
-    const currentTimeIndicator = document.body.querySelector('.time-indicator-current');
+    const currentTimeIndicator = document.getElementById(divId);
 
     return setTimeout(() => {
       const newCurrentTime = Math.ceil(audioRef.current.currentTime);
       setCurrentTime(newCurrentTime);
-      currentTimeIndicator.style.width = `${Math.round(newCurrentTime * 100 / durationTime)}%`;
+      currentTimeIndicator.style.width = `${Math.round(
+        (newCurrentTime * 100) / durationTime
+      )}%`;
       setTimer(updateTimeBar());
-    }, 500)
+    }, 500);
+  };
+
+  const disableAnotherAudioPlayers = () => {
+    const audioPlayers = document.body.querySelectorAll('audio');
+    audioPlayers.forEach((player) => {
+      player.pause();
+    });
   };
 
   const handleClick = () => {
     if (isPlaying) {
       audioRef.current.pause();
     } else {
+      disableAnotherAudioPlayers();
       audioRef.current.play();
     }
     setIsPlaying(!isPlaying);
   };
 
   const handlePlay = () => {
+    setIsPlaying(true);
     setTimer(updateTimeBar());
-  }
+  };
 
   const handlePause = () => {
+    setIsPlaying(false);
     clearTimeout(timer);
-  }
+  };
 
   useEffect(() => {
+    const currentTimeIndicator = document.getElementById(divId);
+    currentTimeIndicator.style.width = 0;
+    setCurrentTime(0);
     setIsPlaying(false);
-
+    clearInterval(timer);
     audioRef.current.oncanplay = () => {
       setDurationTime(audioRef.current.duration);
     };
     audioRef.current.onended = () => {
       setIsPlaying(false);
     };
-    return () => {
-      const currentTimeIndicator = document.body.querySelector('.time-indicator-current');
-      currentTimeIndicator.style.width = 0;
-      setCurrentTime(0);
-      clearTimeout(timer);
-    }
-  }, [props]);
+  }, [audioUrl]);
 
   return (
     <div className="audio-player">
-      <audio src={audioUrl} ref={audioRef} onPlay={handlePlay} onPause={handlePause}>
+      <audio
+        src={audioUrl}
+        ref={audioRef}
+        onPlay={handlePlay}
+        onPause={handlePause}
+      >
         <track kind="captions" />
       </audio>
       {isPlaying ? (
@@ -70,7 +86,7 @@ function AudioPlayer(props) {
       )}
       <div className="time-bar">
         <div className="time-indicator">
-          <div className="time-indicator-current" />
+          <div className="time-indicator-current" id={divId} />
           <div className="time-indicator-pointer" />
           <div className="time-indicator-duration" />
         </div>
