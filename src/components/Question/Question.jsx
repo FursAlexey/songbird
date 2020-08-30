@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Question.scss';
-import AudioPlayer from '../Audioplayer/AudioPlayer';
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 import birdTemplate from '../../images/jpg/bird_template.jpg';
 

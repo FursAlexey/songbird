@@ -8,45 +8,59 @@ function AudioPlayer(props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [durationTime, setDurationTime] = useState(null);
+  const [timer, setTimer] = useState(null);
   const audioRef = useRef(null);
 
   const { audioUrl } = props;
 
+  const updateTimeBar = () => {
+    const currentTimeIndicator = document.body.querySelector('.time-indicator-current');
+
+    return setTimeout(() => {
+      const newCurrentTime = Math.ceil(audioRef.current.currentTime);
+      setCurrentTime(newCurrentTime);
+      currentTimeIndicator.style.width = `${Math.round(newCurrentTime * 100 / durationTime)}%`;
+      setTimer(updateTimeBar());
+    }, 500)
+  };
+
   const handleClick = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
     setIsPlaying(!isPlaying);
   };
 
-  const updateTimeBar = () => {
-    const currentTimeIndicator = document.body.querySelector(
-      '.time-indicator-current'
-    );
-    setCurrentTime(audioRef.current.currentTime);
-    currentTimeIndicator.style.width = `${(currentTime * 100) / durationTime}%`;
-  };
+  const handlePlay = () => {
+    setTimer(updateTimeBar());
+  }
+
+  const handlePause = () => {
+    clearTimeout(timer);
+  }
 
   useEffect(() => {
-    let timer = null;
-    if (isPlaying) {
-      audioRef.current.play();
-      timer = setTimeout(updateTimeBar, 1000);
-    } else {
-      audioRef.current.pause();
-      clearTimeout(timer);
-    }
-  });
+    setIsPlaying(false);
 
-  useEffect(() => {
     audioRef.current.oncanplay = () => {
       setDurationTime(audioRef.current.duration);
     };
     audioRef.current.onended = () => {
       setIsPlaying(false);
     };
-  });
+    return () => {
+      const currentTimeIndicator = document.body.querySelector('.time-indicator-current');
+      currentTimeIndicator.style.width = 0;
+      setCurrentTime(0);
+      clearTimeout(timer);
+    }
+  }, [props]);
 
   return (
     <div className="audio-player">
-      <audio src={audioUrl} ref={audioRef}>
+      <audio src={audioUrl} ref={audioRef} onPlay={handlePlay} onPause={handlePause}>
         <track kind="captions" />
       </audio>
       {isPlaying ? (

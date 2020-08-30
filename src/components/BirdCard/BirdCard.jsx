@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './BirdCard.scss';
-import AudioPlayer from '../Audioplayer/AudioPlayer';
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 function BirdCard(props) {
   const { selectedBird } = props;
