@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
-import './AudioPlayer.scss';
 import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
+
+import './AudioPlayer.scss';
+
 import timeFormatting from '../../resources/timeFormatting';
 
 function AudioPlayer(props) {
@@ -57,7 +59,7 @@ function AudioPlayer(props) {
 
   useEffect(() => {
     const currentTimeIndicator = document.getElementById(divId);
-    currentTimeIndicator.style.width = 0;
+    currentTimeIndicator.style.width = '0';
     setCurrentTime(0);
     setIsPlaying(false);
     clearInterval(timer);

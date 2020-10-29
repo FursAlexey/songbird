@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { random } from 'lodash';
 import './App.scss';
 import logo from './images/svg/logo.svg';
@@ -8,9 +8,9 @@ import Question from './components/Question/Question';
 import AnswerList from './components/AnswerList/AnswerList';
 import BirdCard from './components/BirdCard/BirdCard';
 import NextLevelButton from './components/NextLevelButton/NextLevelButton';
+import EndGame from './components/EndGame/EndGame';
 
 import getBirdsByCategory from './resources/getBirdsByCategory';
-import EndGame from './components/EndGame/EndGame';
 
 function App() {
   const [score, setScore] = useState(0);

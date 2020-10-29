@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Question.scss';
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
